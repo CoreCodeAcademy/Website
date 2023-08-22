@@ -1,3 +1,5 @@
+generated-certificates/*
+
 # Logs
 logs
 *.log
