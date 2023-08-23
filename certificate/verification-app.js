@@ -1,4 +1,5 @@
 const main = document.getElementById("main")
+const img = document.getElementById("img")
 const searchParams = new URLSearchParams(window.location.search)
 
 console.log(searchParams)
@@ -30,13 +31,13 @@ function mainFunction() {
         return
     }
     
-    let img = document.createElement("img")
-    img.src = url
+    let cert = document.createElement("img")
+    cert.src = url
         
-    main.appendChild(img)
+    img.appendChild(cert)
 
-    let text = document.createElement('h1')
-    text.innerText = "This Certificate is verified by us"
+    let text = document.createElement('p')
+    text.innerText = "CoreCode Programming academy verifies that the below ceritificate is issued to the student mentioned in the certificate, for successfully participating the course"
 
     main.appendChild(text)
 }
