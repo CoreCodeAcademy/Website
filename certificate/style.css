@@ -81,6 +81,11 @@ nav img {
     right: 0;
 }
 
+.container #main h1 {
+    color: white;
+    transform: translateX(-1rem);
+}
+
 @media only screen and (max-width: 800px) {
     nav a {
         font-size: 1.2rem;
@@ -119,5 +124,7 @@ nav img {
 
     #lambda-path {
         opacity: 0;
+        height: 0;
+        width: 0;
     }
 }
