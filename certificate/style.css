@@ -4,43 +4,120 @@
 }
 
 body {
-    background: #cbd5e1;
+    background: #1B1A1A;
+    overflow-x: hidden;
 }
 
 nav {
     height: 7dvh;
-    background: #0f172a;
+    background: #030303;
     color: white;
     text-decoration: none;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
+}
+
+nav img {
+    height: 3rem;
+    transform: translateY(7px);
+}
+
+#lambda-path {
+    position: absolute;
+    width: 90dvw;
+    right: -30%;
+    top: 10dvh;
+    z-index: -100;
+    max-height: 90dvh;
 }
 
 .container {
     text-align: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: flex-end;
+    /* align-items: center; */
+    flex-direction: row-reverse;
+}
+
+.container div {
+    width: 50%;
 }
 
 .container p {
     max-width: 700px;
     margin: 20px;
-    font: roboto, 'sans serif';
+    font: 'sans serif';
+    color: white;
+    font-size: 1.75rem;
+    text-align: left;
+    width: 55%;
+}
+
+#img {
+    height: 92dvh;
+    position: relative;
+    left: 0;
 }
 
 #img img {
-    height: 70dvh;
+    height: 85dvh;
+    position: absolute;
+    top: 50%;
+    left: 63%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-@media only screen and (max-width: 600px) {
+.container #main {
+    position: absolute;
+    top: 40%;
+    right: 0;
+}
+
+@media only screen and (max-width: 800px) {
     nav a {
         font-size: 1.2rem;
+    }
+
+    nav img {
+        height: 1.2rem;
+    }
+
+    .container div {
+        width: 100%;
+    } 
+
+    .container #main{
+        top: 9dvh;
+        left: 5dvw;
+    }
+    
+    .container #main p {
+        font-size: 1rem;
+        width: 80%;
+        text-align: center;
+    } 
+
+    .container #img {
+        top: 12dvh;
+    }
+
+    .container #img img {
+        max-width: 500px;
+        width: 95dvw;
+        left: 50%;
+        height: auto;
+        margin: auto;
+    }
+
+    #lambda-path {
+        opacity: 0;
     }
 }

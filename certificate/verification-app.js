@@ -15,13 +15,17 @@ function mainFunction() {
     } 
     
     let cuid = searchParams.get("cuid")
-    let url = `/generated-certificates/${cuid}.jpg`
+    // let url = `/generated-certificates/${cuid}.jpg`
+    let url = `https://cpawebsiteuser.blob.core.windows.net/cpa-certificates/${cuid}.jpg`
     
     let http = new XMLHttpRequest();
-    
     http.open('HEAD', url, false)
+    http.setRequestHeader("Access-Control-Allow-Origin", "*") 
+    http.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With")
     http.send()
     
+    // let http = {status: 200}
+
     if (http.status != 200) {
         let text = document.createElement('h1')
         text.innerText = "Invalid Certificate ID"
