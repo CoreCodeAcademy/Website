@@ -41,7 +41,7 @@ function mainFunction() {
     img.appendChild(cert)
 
     let text = document.createElement('p')
-    text.innerText = "CoreCode Programming academy verifies that the below ceritificate is issued to the student mentioned in the certificate, for successfully participating the course"
+    text.innerText = "The CoreCode Programming Academy confirms that the certificate presented below has been issued to the student as indicated on the certificate, in recognition of their participation in the course."
 
     main.appendChild(text)
 }
