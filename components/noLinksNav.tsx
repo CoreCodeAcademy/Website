@@ -3,8 +3,8 @@ import Link from "next/link"
 
 export default function NoLinksNav() {
     return (
-        <nav className="bg-neutral-950 block overflow-x-hidden">
-            <Link href="#" className="text-sm sm:text-xl md:text-4xl flex text-white justify-center items-center font-serif">
+        <nav className="bg-neutral-950 block sticky z-50 overflow-x-hidden">
+            <Link href="#" className="text-sm sm:text-xl md:text-2xl lg:text-4xl flex text-white justify-center items-center font-serif">
                 <Image 
                     src="/cpa-logo.svg"
                     alt="CPA Logo"
