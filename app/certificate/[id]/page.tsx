@@ -48,7 +48,7 @@ async function GetCertificate({ id }: any) {
     }
     
     return (
-        <div className="text-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:text-4xl text-red-300">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-lg md:text-2xl lg:text-4xl text-red-300">
             <h1>Invalid Certificate ID - {id}</h1>
         </div>
     )

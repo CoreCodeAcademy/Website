@@ -11,7 +11,7 @@ export default function Certificate() {
     return (
         <div className="bg-neutral-900 min-h-screen overflow-x-hidden">
             <NoLinksNav />
-            <div className="text-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:text-4xl">
+            <div className="text-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:text-2xl lg:text-4xl">
                 <h1>No Certificate UID Provided</h1>
             </div>
 
