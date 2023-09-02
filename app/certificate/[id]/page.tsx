@@ -2,31 +2,39 @@ import NoLinksNav from "@/components/noLinksNav";
 import { Metadata } from "next"
 import Image from "next/image"
 
-export const metadata: Metadata = {
-    title: 'Certificate' 
+type Props = {
+    params: {
+        id: string
+    }
 }
 
-async function GetCertificate({ id }: any) {
+const revalidateTime: number = 60; // time for caching in seconds
+
+async function isVerified(id: string): Promise<{ 
+    url: string, 
+    verified: Boolean
+}> {
     let url = `https://cpawebsiteuser.blob.core.windows.net/cpa-certificates/${id}.jpg`
-    
-    const response = await fetch(url, {
+
+    const verified: Boolean = await fetch(url, {
         method: 'HEAD',
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Headers": "X-Requested-With"
+        },
+        next: {
+            revalidate: revalidateTime
         }
-    });
-    // old browser code
-    // let http = new XMLHttpRequest();
-    // http.open('HEAD', url, false)
-    // http.setRequestHeader("Access-Control-Allow-Origin", "*") 
-    // http.setRequestHeader("Access-Control-Allow-Headers", "X-Requested-With")
-    // http.send()
+    }).then((response) => (response.status == 200))
+    .catch((error) => false)
 
-    metadata.title = (response.status == 200) ? 'Certificate Verified' : 'Invalid Certificate'
-    
-    if (response.status == 200) {
-        
+    return { url, verified }
+} 
+
+async function GetCertificate({ id }: any) {
+    const { url, verified } = await isVerified(id);
+
+    if (verified) {
         return (
             <div className="flex flex-col-reverse relative md:flex-row md:justify-center items-center md:h-[calc(100vh-64px)]">
                 <div className="side md:w-[47vw] inline-flex flex-row-reverse">
@@ -54,19 +62,29 @@ async function GetCertificate({ id }: any) {
     )
 }
 
-export default function VerifyCertificatePage({ params }: any) {
-    const { id } = params;
+export default function VerifyCertificatePage({ params }: Props) {
+    const { id } = params
+
     return (
         <div className="bg-neutral-900 min-h-screen overflow-x-hidden">
             <NoLinksNav/>
             <Image
                 src="/Lambda-path.svg"
                 alt="lambda path"
-                className="w-0 md:w-[90vw] max-h-[90vh] absolute -right-[30vw] top-[50vh] -translate-y-1/2 z-0"
+                className="w-0 md:w-[90vw] max-h-[90vh] absolute -right-[30vw] top-[50vh] -translate-y-1/2 z-0 pointer-events-none"
                 height={858}
                 width={1196}
             />
             <GetCertificate id={id}/>
         </div>
     )
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { id } = params
+    const { verified } = await isVerified(id)
+
+    return {
+        title: verified ? "Certificate Verified" : "Invalid Certificate"
+    }
 }

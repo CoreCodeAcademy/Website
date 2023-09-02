@@ -2,10 +2,10 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Noto_Serif } from 'next/font/google'
 
-const inter = Noto_Serif({ subsets: ['latin'] })
+const font = Noto_Serif({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'CoreCode Programming Academy',
+  title: 'CPA | CoreCode Programming Academy',
   description: 'Website for CoreCode Programming Academy By Yogeshware Shukla Sir',
 }
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-neutral-900 overflow-x-hidden`}>{children}</body>
+      <body className={`${font.className} bg-neutral-900 overflow-x-hidden`}>{children}</body>
     </html>
   )
 }
