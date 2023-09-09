@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["cpawebsiteuser.blob.core.windows.net"]
+        domains: ["cpa-certificates.blr1.cdn.digitaloceanspaces.com"]
     }
 }
 
