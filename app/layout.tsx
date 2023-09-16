@@ -6,7 +6,7 @@ const font = Noto_Serif({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'CPA | CoreCode Programming Academy',
-  description: 'Website for CoreCode Programming Academy By Yogeshware Shukla Sir',
+  description: 'Website for CoreCode Programming Academy By Yogeshwar Shukla Sir',
 }
 
 export default function RootLayout({
